@@ -1,0 +1,24 @@
+<h1 style="text-align:center; font-family:Arial;">Your Cart 🛒</h1>
+<div style="font-family:Arial; max-width:600px; margin:auto;">
+{% for item in items %}
+<div style="border:1px solid #ddd; padding:15px; margin:10px; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
+    <span><b>{{ item.product.name }}</b><br>Rs. {{ item.product.price }} each</span>
+    <span>
+        <a href="/decrease/{{ item.id }}/" style="padding:5px 10px; background:#eee; text-decoration:none; border-radius:5px;">-</a>
+        <b> {{ item.quantity }} </b>
+        <a href="/increase/{{ item.id }}/" style="padding:5px 10px; background:#eee; text-decoration:none; border-radius:5px;">+</a>
+    </span>
+    <b>Rs. {{ item.total_price }}</b>
+    <a href="/remove/{{ item.id }}/" style="color:red; text-decoration:none;">❌ Remove</a>
+</div>
+{% empty %}
+<p style="text-align:center;">Cart empty. Home ki velli add cheyi!</p>
+{% endfor %}
+
+{% if items %}
+<h2 style="text-align:right;">Total: Rs. {{ total }}</h2>
+<a href="/checkout/" style="display:block; text-align:center; background:green; color:white; padding:15px; border-radius:10px; text-decoration:none; font-size:18px;">Place Order ✅</a>
+{% endif %}
+<br>
+<a href="/" style="display:block; text-align:center;">Continue Shopping</a>
+</div>

@@ -1,0 +1,18 @@
+<h1 style="text-align:center; font-family: Arial;">Welcome to ShopKart 🛒</h1>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; font-family: Arial;">
+
+{% for p in products %}
+<div style="border:1px solid #ddd; border-radius:12px; padding:20px; width:250px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align:center; background:white;">
+    <h2 style="margin:0;">{{ p.name }}</h2>
+    <p style="color:#555;">{{ p.description }}</p>
+    <h3 style="color:green;">Rs. {{ p.price }}</h3>
+    <p>Category: {{ p.category }}</p>
+    <a href="/add/{{p.id}}/" style="background:#2874f0; color:white; padding:10px 20px; border-radius:8px;text-decoration:none; display:inline-block;">Add to cart</a>
+</div>
+{% empty %}
+<p>No products yet. Admin lo add cheyi!</p>
+{% endfor %}
+
+</div>
+
